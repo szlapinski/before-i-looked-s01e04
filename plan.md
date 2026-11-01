@@ -1,9 +1,8 @@
 ---
 plan: morning-digest
-status: done
+status: ready
 owner: rook
 opened: 2026-10-29
-closed: 2026-11-01
 ---
 
 # Morning digest
@@ -78,16 +77,3 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
-
-## Issues
-
-| # | Issue | Blocked by | Status |
-|---|-------|------------|--------|
-| 1 | [Define the digest contract](https://github.com/szlapinski/before-i-looked-s01e04/issues/1) | — | Closed |
-| 2 | [Read and aggregate nightly run logs](https://github.com/szlapinski/before-i-looked-s01e04/issues/2) | #1 | Closed |
-| 3 | [Render the nightly digest page](https://github.com/szlapinski/before-i-looked-s01e04/issues/3) | #1, #2 | Closed |
-| 4 | [Expose digest rows as JSON](https://github.com/szlapinski/before-i-looked-s01e04/issues/4) | #1, #2 | Closed |
-| 5 | [Link status board nights to digests](https://github.com/szlapinski/before-i-looked-s01e04/issues/5) | #1, #2 | Closed |
-| 6 | [Test digest routes and edge cases](https://github.com/szlapinski/before-i-looked-s01e04/issues/6) | #1, #2, #3, #4 | Closed |
-| 7 | [Publish a marked digest preview](https://github.com/szlapinski/before-i-looked-s01e04/issues/7) | #2–#6 | Closed |
-| 8 | [Remove the preview marker and archive the plan](https://github.com/szlapinski/before-i-looked-s01e04/issues/8) | #7 | Closed |
