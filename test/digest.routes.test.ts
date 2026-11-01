@@ -11,12 +11,13 @@ const config = {
 };
 
 const night = '2026-10-28';
-const validLine = JSON.stringify({
+const validRun = {
   at: '2026-10-28T07:15:00+01:00',
   job: 'backup',
   status: 'ok',
   owner: 'ops',
-});
+};
+const validLine = JSON.stringify(validRun);
 
 async function requestDigest(path: string, fileContents: string | null): Promise<Response> {
   const runsDir = mkdtempSync(join(process.cwd(), 'test', '.digest-runs-'));
@@ -64,7 +65,7 @@ describe.each([
     expect(response.status).toBe(200);
     const body = await readBody(response);
     if (path.startsWith('/api/')) {
-      expect(body).toMatchObject({ rows: [], badLines: 0 });
+      expect(body).toEqual([]);
     } else {
       expect(body).toContain('nothing ran');
     }
@@ -77,10 +78,22 @@ describe.each([
     const body = await readBody(response);
     expect(JSON.stringify(body)).toContain('backup');
     if (path.startsWith('/api/')) {
-      expect(body).toMatchObject({
-        rows: [{ job: 'backup' }],
-        badLines: 1,
-      });
+      expect(body).toMatchObject([{ job: 'backup' }]);
     }
   });
+});
+
+it('returns JSON jobs in the same order as the HTML page', async () => {
+  const content = [
+    { ...validRun, job: 'zulu' },
+    { ...validRun, job: 'alpha' },
+  ].map((line) => JSON.stringify(line)).join('\n');
+  const htmlResponse = await requestDigest(`/digest/${night}`, content);
+  const jsonResponse = await requestDigest(`/api/digest/${night}`, content);
+  const html = await htmlResponse.text();
+
+  expect(htmlResponse.status).toBe(200);
+  expect(jsonResponse.status).toBe(200);
+  expect(await jsonResponse.json()).toMatchObject([{ job: 'alpha' }, { job: 'zulu' }]);
+  expect(html.indexOf('<td>alpha</td>')).toBeLessThan(html.indexOf('<td>zulu</td>'));
 });
