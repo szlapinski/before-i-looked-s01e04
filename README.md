@@ -17,3 +17,7 @@ empty night says “nothing ran”. Like the status board, the digest uses serve
 with no client JavaScript.
 
 Working on it with an agent: start at [AGENTS.md](AGENTS.md).
+
+The status board lists nights newest first, with links to `/digest/<night>` and counts of
+jobs whose last status is `ok`, `retry`, or `fail`. Counts describe one outcome per job,
+not total run attempts or retries; an empty night shows zeroes and unavailable data shows `—`.
