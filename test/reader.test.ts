@@ -55,6 +55,7 @@ describe('night reader', () => {
 
   it('returns null for a missing file and an empty digest for an empty file', () => {
     expect(readNight(runsDir, 'missing')).toBeNull();
+    expect(readNight(runsDir, '../.env')).toBeNull();
     writeFileSync(join(runsDir, 'night.jsonl'), '');
     expect(readNight(runsDir, 'night')).toEqual({ rows: [], badLines: 0 });
   });

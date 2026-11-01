@@ -41,6 +41,8 @@ function parseRun(line: string): Run | null {
 }
 
 export function readNight(runsDir: string, night: string): NightDigest | null {
+  if (!/^[\w-]+$/.test(night)) return null;
+
   let contents: string;
   try {
     contents = readFileSync(join(runsDir, `${night}.jsonl`), 'utf8');
