@@ -4,8 +4,9 @@ export type DigestRow = {
   runs: number;
   retries: number;
   lastStatus: 'ok' | 'retry' | 'fail';
+  // The latest reported error, retained even if a later run succeeds.
   lastError: string | null;
-  // Preserve the log's timestamps, including their original offsets.
+  // First and last records in log order, with their original timestamp offsets.
   firstAt: string;
   lastAt: string;
 };
