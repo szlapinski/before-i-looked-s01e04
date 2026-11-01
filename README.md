@@ -14,7 +14,8 @@ with run counts, retries, last status/error, owner, and the original timestamp o
 Rows with at least three retries or a failed last status are marked. Missing owners and errors
 display as `—`; malformed lines are counted and skipped. A missing night returns 404, and an
 empty night says “nothing ran”. Like the status board, the digest uses server-rendered HTML
-with no client JavaScript.
+with no client JavaScript. `GET /api/digest/:night` returns the same rows as JSON in the same
+order for agents.
 
 Working on it with an agent: start at [AGENTS.md](AGENTS.md).
 
