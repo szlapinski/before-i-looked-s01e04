@@ -90,4 +90,4 @@ Done when: the preview link no longer shows the lane marker.
 | 5 | [Link status board nights to digests](https://github.com/szlapinski/before-i-looked-s01e04/issues/5) | #1, #2 | Closed |
 | 6 | [Test digest routes and edge cases](https://github.com/szlapinski/before-i-looked-s01e04/issues/6) | #1, #2, #3, #4 | Closed |
 | 7 | [Publish a marked digest preview](https://github.com/szlapinski/before-i-looked-s01e04/issues/7) | #2–#6 | Closed |
-| 8 | [Remove the preview marker and archive the plan](https://github.com/szlapinski/before-i-looked-s01e04/issues/8) | #7 | In progress |
+| 8 | [Remove the preview marker and archive the plan](https://github.com/szlapinski/before-i-looked-s01e04/issues/8) | #7 | Closed |
